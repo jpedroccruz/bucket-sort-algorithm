@@ -9,4 +9,4 @@ const famous_people = (await page.$$eval('p b', element => element.map(name => n
 
 await browser.close()
 
-writeFileSync('data.csv', famous_people.join('\n'), 'utf-8')
+writeFileSync('data.txt', famous_people.join('\n'), 'utf-8')

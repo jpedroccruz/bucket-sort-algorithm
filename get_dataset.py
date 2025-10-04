@@ -13,6 +13,6 @@ if div_content:
 
 famous_people.reverse()
 
-with open("data.csv", "w") as file:
+with open("data.txt", "w") as file:
   for person in famous_people:
-    file.write(f'{person},\n')
+    file.write(f'{person}\n')
