@@ -1,16 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "bucket_sort.h"
-#include "bubble_sort.h"
+#include "./lib/bucket_sort.h"
+#include "./lib/bubble_sort.h"
+#include "./lib/uploadData.h"
 
 int main() {
-  FILE *dataset = fopen("../data.txt", "r");
   char famous_people[100][50];
   int namesToOrderQtt;
 
-  for (int i = 0; i < 100; i++) {
-    fscanf(dataset, "%[^\n]\n", famous_people[i]);
-  }
+  uploadData(famous_people);
 
   printf("Insira a quantidade de nomes para ordenar: ");
   scanf("%d", &namesToOrderQtt);
