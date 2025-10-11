@@ -11,8 +11,6 @@ if div_content:
   for element in div_content.select("p b"):
     famous_people.append(element.text.strip())
 
-famous_people.reverse()
-
 with open("data.txt", "w") as file:
   for person in famous_people:
     file.write(f'{person}\n')
