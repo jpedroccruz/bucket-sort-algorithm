@@ -12,8 +12,8 @@ int main() {
 
   printf("Insira a quantidade de nomes para ordenar: ");
   scanf("%d", &namesToOrderQtt);
-
   system("cls");
+
   bucketSort(famous_people, namesToOrderQtt);
 
   for (int i = 0; i < namesToOrderQtt; i++) {
