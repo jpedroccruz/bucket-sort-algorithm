@@ -2,35 +2,43 @@
 #define BUCKET_SORT_H
 
 #include <stdio.h>
+#include <string.h>
 
-void sort(float *array, int bucketLength) {
-  float aux;
+void sort(char array[][50], int arrayLength) {
+  char aux[50];
 
-  for (int i = 0; i < bucketLength - 1; i++) {
-    for (int j = i + 1; j < bucketLength; j++) {
-      if (array[i] > array[j]) {
-        aux = array[i];
-        array[i] = array[j];
-        array[j] = aux;
+  for (int i = 0; i < arrayLength - 1; i++) {
+    for (int j = i + 1; j < arrayLength; j++) {
+      if (strcmp(array[i], array[j]) < 0) {
+        strcpy(aux, array[i]);
+        strcpy(array[i], array[j]);
+        strcpy(array[j], aux);
       }
     }
   }
 }
 
-void bucketSort() {
-  float array[] = {0.78, 0.17, 0.39, 0.26, 0.72, 0.94, 0.21, 0.12, 0.23, 0.68};
-  int arrayLength = 10;
-  float bucket_array[arrayLength][arrayLength];
-  int bucket_count[10] = {0};
+void bucketSort(char array[][50], int arrayLength) {
+  char bucket_array[arrayLength][arrayLength][50];
+  int bucket_count[arrayLength];
+
+  for (int i = 0; i < arrayLength; i++) {
+    bucket_count[i] = 0;
+  }
 
   // STEP 1: inserting elements into buckets
   int index, nextIndex;
   for (int i = 0; i < arrayLength; i++) {
-    index = array[i] * arrayLength;
+    index = (int)array[i] * arrayLength;
+
+    while (index >= 10) {
+      index /= 10;
+    }
+
     if (index > arrayLength) index = arrayLength - 1;
     
     nextIndex = bucket_count[index]++;
-    bucket_array[index][nextIndex] = array[i];
+    strcpy(bucket_array[index][nextIndex], array[i]);
   } 
 
   // sorting each bucket
@@ -42,12 +50,8 @@ void bucketSort() {
   nextIndex = 0;
   for (int i = 0; i < arrayLength; i++) {
     for (int j = 0; j < bucket_count[i]; j++) {
-      array[nextIndex++] = bucket_array[i][j];
+      strcpy(array[nextIndex++], bucket_array[i][j]);
     }
-  }
-
-  for (int i = 0; i < arrayLength; i++) {
-    printf("%.1f  ", array[i]);
   }
 }
 
