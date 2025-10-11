@@ -15,6 +15,7 @@ int main() {
   system("cls");
 
   bucketSort(famous_people, namesToOrderQtt);
+  bubbleSort(famous_people, namesToOrderQtt);
 
   for (int i = 0; i < namesToOrderQtt; i++) {
     printf("%s\n", famous_people[i]);
