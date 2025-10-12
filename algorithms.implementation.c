@@ -7,7 +7,7 @@
 int main() {
   char famous_people[100][50];
   int namesToOrderQtt;
-  int comparasion = 0;
+  int comparasion = 0, swap = 0;
 
   uploadData(famous_people);
 
@@ -15,12 +15,13 @@ int main() {
   scanf("%d", &namesToOrderQtt);
   system("cls");
 
-  bucketSort(famous_people, namesToOrderQtt, &comparasion);
-  // bubbleSort(famous_people, namesToOrderQtt, &comparasion);
+  bucketSort(famous_people, namesToOrderQtt, &comparasion, &swap);
+  // bubbleSort(famous_people, namesToOrderQtt, &comparasion, &swap);
 
   for (int i = 0; i < namesToOrderQtt; i++) {
     printf("%s\n", famous_people[i]);
   }
 
   printf("\nForam feitas %d comparacoes\n", comparasion);
+  printf("\nForam feitas %d trocas", swap);
 }

@@ -7,7 +7,7 @@
 
 const int BUCKETS_QTT = 26;
 
-void bucketSort(char array[][50], int arrayLength, int *comparasion) {
+void bucketSort(char array[][50], int arrayLength, int *comparasion, int *swap) {
   char bucket_array[BUCKETS_QTT][arrayLength][50];
   int bucket_count[BUCKETS_QTT];
 
@@ -28,14 +28,14 @@ void bucketSort(char array[][50], int arrayLength, int *comparasion) {
 
   // STEP 2: sorting each bucket
   for (int i = 0; i < BUCKETS_QTT; i++) {
-    // (*comparasion)++;
-    if (bucket_count[i] > 1) bubbleSort(bucket_array[i], bucket_count[i], comparasion);
+    if (bucket_count[i] > 1) bubbleSort(bucket_array[i], bucket_count[i], comparasion, swap);
   }
 
   // STEP 3: gathering elements from each bucket
   nextIndex = 0;
   for (int i = 0; i < BUCKETS_QTT; i++) {
     for (int j = 0; j < bucket_count[i]; j++) {
+      (*swap)++;
       strcpy(array[nextIndex++], bucket_array[i][j]);
     }
   }
