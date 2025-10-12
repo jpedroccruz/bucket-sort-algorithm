@@ -35,7 +35,6 @@ void bucketSort(char array[][50], int arrayLength, int *comparasion, int *swap) 
   nextIndex = 0;
   for (int i = 0; i < BUCKETS_QTT; i++) {
     for (int j = 0; j < bucket_count[i]; j++) {
-      (*swap)++;
       strcpy(array[nextIndex++], bucket_array[i][j]);
     }
   }
