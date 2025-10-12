@@ -4,11 +4,12 @@
 #include <stdio.h>
 #include <string.h>
 
-void bubbleSort(char array[][50], int arrayLength) {
+void bubbleSort(char array[][50], int arrayLength, int *comparasion) {
   char aux[50];
 
   for (int i = 0; i < arrayLength - 1; i++) {
     for (int j = i + 1; j < arrayLength; j++) {
+      (*comparasion)++;
       if (strcmp(array[i], array[j]) < 0) {
         strcpy(aux, array[i]);
         strcpy(array[i], array[j]);
