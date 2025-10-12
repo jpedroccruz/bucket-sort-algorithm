@@ -7,10 +7,9 @@
 int main() {
   char famous_people[100][50];
   int namesToOrderQtt;
-  int comparasion = 0, swap = 0;
-  int option;
-  uploadData(famous_people);
+  int comparasion = 0, swap = 0, option;
 
+  uploadData(famous_people);
   
   printf("Select the sorting algorithm:");
   printf("\n[1] Bubble Sort");
@@ -18,29 +17,31 @@ int main() {
   printf("\n> ");
   scanf("%d", &option);
 
-  switch (option)
-  {
+  switch (option) {
     case 1:
       printf("> [BUBBLE SORT] Insira a quantidade de nomes para desordenar: ");
       scanf("%d", &namesToOrderQtt);
       bubbleSort(famous_people, namesToOrderQtt, &comparasion, &swap);
       break;
-    case 2:
+    
+      case 2:
       printf("> [BUCKET SORT] Insira a quantidade de nomes para desordenar: ");
       scanf("%d", &namesToOrderQtt);
       bucketSort(famous_people, namesToOrderQtt, &comparasion, &swap);
       break;
-    default:
-    break;
+    
+      default:
+      break;
   }
   
   system("cls");
-  printf("SORTING Z TO A\n\n");
+  printf("Ordenando array de Z para A:\n\n");
+
   for (int i = 0; i < namesToOrderQtt; i++) {
     printf("%s\n", famous_people[i]);
   }
-  printf("\n> Foram feitas %d comparacoes\n", comparasion);
-  printf("\n> Foram feitas %d trocas", swap);
 
-  }
+  printf("\n> Foram feitas %d comparacoes", comparasion);
+  printf("\n> Foram feitas %d trocas", swap);
+}
   
