@@ -22,25 +22,29 @@ int main() {
       printf("> [BUBBLE SORT] Insira a quantidade de nomes para desordenar: ");
       scanf("%d", &namesToOrderQtt);
       bubbleSort(famous_people, namesToOrderQtt, &comparasion, &swap);
+      system("cls");
+      printf("BUBBLE SORT - ");
       break;
     
       case 2:
       printf("> [BUCKET SORT] Insira a quantidade de nomes para desordenar: ");
       scanf("%d", &namesToOrderQtt);
       bucketSort(famous_people, namesToOrderQtt, &comparasion, &swap);
+      system("cls");
+      printf("BUCKET SORT - ");
       break;
     
       default:
       break;
   }
-  
-  system("cls");
+
   printf("Ordenando array de Z para A:\n\n");
 
   for (int i = 0; i < namesToOrderQtt; i++) {
     printf("%s\n", famous_people[i]);
   }
 
+  printf("\n| Para %d nomes:", namesToOrderQtt);
   printf("\n> Foram feitas %d comparacoes", comparasion);
   printf("\n> Foram feitas %d trocas", swap);
 }
