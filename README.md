@@ -10,12 +10,15 @@ This educational project demonstrates the implementation of two different sortin
 
 The program sorts a dataset of 100 famous historical figures in descending order (Z to A) and provides detailed performance statistics.
 
+**📊 Presentation**: The `prog2_pitch.pptx` file contains a detailed explanation of the Bucket Sort algorithm implementation and analysis.
+
 ## 🏗️ Project Structure
 
 ```
 bucket-sort/
 ├── algorithms.implementation.c    # Main program file
 ├── data.txt                      # Dataset of famous people (100 names)
+├── prog2_pitch.pptx             # Project presentation slides
 ├── lib/                          # Header files directory
 │   ├── bucket_sort.h            # Bucket sort implementation
 │   ├── bubble_sort.h            # Bubble sort implementation
